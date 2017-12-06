@@ -169,6 +169,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HourIntervalsController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,6 +187,14 @@
     <Compile Include="Migrations\201712061353374_AddedHourInterval.Designer.cs">
       <DependentUpon>201712061353374_AddedHourInterval.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712061418301_Modify_Job_0.0.cs" />
+    <Compile Include="Migrations\201712061418301_Modify_Job_0.0.Designer.cs">
+      <DependentUpon>201712061418301_Modify_Job_0.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712061420127_Seed_Jobs_0.0.cs" />
+    <Compile Include="Migrations\201712061420127_Seed_Jobs_0.0.Designer.cs">
+      <DependentUpon>201712061420127_Seed_Jobs_0.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HourInterval.cs" />
@@ -193,6 +203,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\HourIntervalJobs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -250,9 +261,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\HourIntervals\Index.cshtml" />
+    <Content Include="Views\HourIntervals\HourIntervalJobsForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Jobs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -271,6 +285,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712061353374_AddedHourInterval.resx">
       <DependentUpon>201712061353374_AddedHourInterval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712061418301_Modify_Job_0.0.resx">
+      <DependentUpon>201712061418301_Modify_Job_0.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712061420127_Seed_Jobs_0.0.resx">
+      <DependentUpon>201712061420127_Seed_Jobs_0.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
