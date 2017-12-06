@@ -20,6 +20,9 @@ namespace TaskAssessor.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<HourInterval> HourIntervals { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
