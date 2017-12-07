@@ -1,0 +1,31 @@
+﻿@model TaskAssessor.ViewModels.HourIntervalJobs
+
+@{
+    ViewBag.Title = "Form";
+}
+
+<h2>Add </h2>
+
+@using (Html.BeginForm("Create", "HourIntervals"))
+{
+    <div class="form-group">
+        @Html.LabelFor(j => j.HourInterval.TimeStarted)
+        @Html.TextBoxFor(j => j.HourInterval.TimeStarted, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(j => j.HourInterval.TimeEnded)
+        @Html.TextBoxFor(j => j.HourInterval.TimeEnded, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(j => j.HourInterval.JobId)
+        @Html.DropDownListFor(j => j.HourInterval.JobId, new SelectList(Model.Jobs, "Id", "Name"), "Select Job", new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(j => j.HourInterval.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

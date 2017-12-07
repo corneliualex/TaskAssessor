@@ -1,0 +1,13 @@
+﻿@model TaskAssessor.Models.Job
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Name</h2>
+
+<b>Date added</b>
+<p>@Model.DateAdded</p>
+<b>Date modified</b>
+<p>@Model.DateModified</p>
+<b>Added By</b>
+<p>@Model.ApplicationUser.UserName</p>
