@@ -11,6 +11,8 @@ namespace TaskAssessor.Models
         public string Name { get; set; }
         public DateTime DateAdded { get; set; }
         public DateTime? DateModified { get; set; }
-        public string AddedBy { get; set; }
+        
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

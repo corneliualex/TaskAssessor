@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TaskAssessor.Models.Job>
+
+@{
+    ViewBag.Title = "Index";
+    var index = 0;
+}
+
+<h2>Tasks</h2>
+<a href="@Url.Action("New","Jobs")" class="btn btn-primary">Add Task</a>
+
+@if (!Model.Any())
+{
+    <p>No jobs in here, sry</p>
+}
+else
+{
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Job</th>
+                <th>Date Added</th>
+                <th>Date Modified</th>
+                <th>Added By</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@(++index)</td>
+                    <td>@Html.ActionLink(item.Name, "Details", "Jobs", new { id = item.Id }, null)</td>
+                    <td>@item.DateAdded</td>
+                    <td>@item.DateModified</td>
+                    <td>@item.ApplicationUser.UserName</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Jobs", new { id = item.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!--
+
+Back to topBlogRSSTwitterGitHubAPIDonate
+Made by Thomas Park.
+Code released under the MIT License.
+Based on Bootstrap. Icons from Font Awesome. Web fonts from Google.
+
+-->

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TaskAssessor.Models;
+using System.Data.Entity;
+using TaskAssessor.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace TaskAssessor.Controllers
 {
@@ -14,28 +17,67 @@ namespace TaskAssessor.Controllers
         // GET: Jobs
         public ActionResult Index()
         {
-            var jobs = _context.Jobs.ToList();
-
+            var jobs = _context.Jobs.Include(user => user.ApplicationUser).ToList();
             return View(jobs);
         }
 
+        public ActionResult Details(int id)
+        {
+            var job = _context.Jobs.Include(user => user.ApplicationUser).SingleOrDefault(j => j.Id == id);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(job);
+        }
+
+        [Authorize]
         public ActionResult New()
         {
-            return View();
+            return View("CreateJob", new Job());
         }
 
         public ActionResult Edit(int id)
         {
-            return View();
-        }
+            var job = _context.Jobs.Include(user => user.ApplicationUser).SingleOrDefault(j => j.Id == id);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
         
+            return View("CreateJob",job);
+        }
+
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult CreateForm(Job job)
+        public ActionResult CreateJob(Job job)
+        {
+           
+            if (job.Id == 0)
+            {
+                job.DateAdded = DateTime.Now;
+                job.ApplicationUserId = User.Identity.GetUserId();
+                _context.Jobs.Add(job);
+            }else
+            {
+                var jobInDb = _context.Jobs.Single(j => j.Id == job.Id);
+                jobInDb.Name = job.Name;
+                jobInDb.DateAdded = job.DateAdded;
+                jobInDb.DateModified = DateTime.Now;
+                jobInDb.ApplicationUserId = job.ApplicationUserId;
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Jobs");
+        }
+
+        //profile page for user if is authenticated where he can see it's jobs so far(today jobs)
+        public ActionResult MyJobs(string id)
         {
             return View();
         }

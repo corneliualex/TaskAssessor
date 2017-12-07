@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HourIntervalsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,6 +196,14 @@
     <Compile Include="Migrations\201712061420127_Seed_Jobs_0.0.Designer.cs">
       <DependentUpon>201712061420127_Seed_Jobs_0.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712071451452_Trying.cs" />
+    <Compile Include="Migrations\201712071451452_Trying.Designer.cs">
+      <DependentUpon>201712071451452_Trying.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712071539081_JobModel_removedAddedBy.cs" />
+    <Compile Include="Migrations\201712071539081_JobModel_removedAddedBy.Designer.cs">
+      <DependentUpon>201712071539081_JobModel_removedAddedBy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HourInterval.cs" />
@@ -204,6 +213,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\HourIntervalJobs.cs" />
+    <Compile Include="ViewModels\UserJobs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -263,10 +273,15 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\HourIntervals\Index.cshtml" />
     <Content Include="Views\HourIntervals\HourIntervalJobsForm.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\Jobs\Details.cshtml" />
+    <Content Include="Views\Jobs\CreateJob.cshtml" />
+    <Content Include="Views\Jobs\New.cshtml" />
+    <Content Include="Views\Jobs\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Jobs\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -291,6 +306,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712061420127_Seed_Jobs_0.0.resx">
       <DependentUpon>201712061420127_Seed_Jobs_0.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071451452_Trying.resx">
+      <DependentUpon>201712071451452_Trying.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071539081_JobModel_removedAddedBy.resx">
+      <DependentUpon>201712071539081_JobModel_removedAddedBy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,21 @@
+﻿@model TaskAssessor.Models.Job
+
+@{
+    ViewBag.Title = "CreateJob";
+}
+
+<h2>New Task</h2>
+
+@using (Html.BeginForm("CreateJob", "Jobs"))
+{
+    <div class="form-group">
+        @Html.LabelFor(j => j.Name)
+        @Html.TextBoxFor(j => j.Name, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(j => j.Id)
+    @Html.HiddenFor(j => j.DateAdded)
+    @Html.HiddenFor(j => j.ApplicationUserId)
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
