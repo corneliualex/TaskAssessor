@@ -1,0 +1,32 @@
+﻿@model TaskAssessor.ViewModels.HourIntervalJobs
+@{
+    ViewBag.Title = "CreateMyJob";
+}
+
+<h2>CreateMyJob</h2>
+
+@using (Html.BeginForm("CreateMyJob", "MyJobs"))
+{
+    <div class="form-group">
+        @Html.LabelFor(j => j.HourInterval.TimeStarted)
+        @Html.TextBoxFor(j => j.HourInterval.TimeStarted, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(j => j.HourInterval.TimeEnded)
+        @Html.TextBoxFor(j => j.HourInterval.TimeEnded, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(j => j.HourInterval.Description)
+        @Html.TextBoxFor(j => j.HourInterval.Description, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(j => j.HourInterval.JobId)
+        @Html.DropDownListFor(j => j.HourInterval.JobId, new SelectList(Model.Jobs,"Id","Name"),"Select Task", new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(j=> j.HourInterval.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
