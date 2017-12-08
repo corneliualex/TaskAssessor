@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TaskAssessor.Models.HourInterval>
+@{
+    ViewBag.Title = "Index";
+    var index = 0;
+}
+
+<h2>Index</h2>
+
+
+
+@if (!Model.Any())
+{
+    <p>No jobs in here, sry</p>
+}
+else
+{
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Task</th>
+                <th>Time Added</th>
+                <th>Time Ended</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@(++index)</td>
+                    <td>@item.Job.Name</td>
+                    <td>@item.TimeStarted</td>
+                    <td>@item.TimeEnded</td>
+                    <td>@item.Description</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!--
+
+Back to topBlogRSSTwitterGitHubAPIDonate
+Made by Thomas Park.
+Code released under the MIT License.
+Based on Bootstrap. Icons from Font Awesome. Web fonts from Google.
+
+-->

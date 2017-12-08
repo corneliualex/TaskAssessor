@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HourIntervalsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyJobsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -203,6 +204,14 @@
     <Compile Include="Migrations\201712071539081_JobModel_removedAddedBy.cs" />
     <Compile Include="Migrations\201712071539081_JobModel_removedAddedBy.Designer.cs">
       <DependentUpon>201712071539081_JobModel_removedAddedBy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712081431386_AddedUserToHourInterval.cs" />
+    <Compile Include="Migrations\201712081431386_AddedUserToHourInterval.Designer.cs">
+      <DependentUpon>201712081431386_AddedUserToHourInterval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712081437244_UpdatedHourIntervalModel.cs" />
+    <Compile Include="Migrations\201712081437244_UpdatedHourIntervalModel.Designer.cs">
+      <DependentUpon>201712081437244_UpdatedHourIntervalModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -278,9 +287,14 @@
     <Content Include="Views\Jobs\CreateJob.cshtml" />
     <Content Include="Views\Jobs\New.cshtml" />
     <Content Include="Views\Jobs\Edit.cshtml" />
+    <Content Include="Views\Jobs\MyJobs.cshtml" />
+    <Content Include="Views\MyJobs\Index.cshtml" />
+    <Content Include="Views\MyJobs\CreateMyJob.cshtml" />
+    <Content Include="Views\MyJobs\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UserProfile\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +326,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712071539081_JobModel_removedAddedBy.resx">
       <DependentUpon>201712071539081_JobModel_removedAddedBy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712081431386_AddedUserToHourInterval.resx">
+      <DependentUpon>201712081431386_AddedUserToHourInterval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712081437244_UpdatedHourIntervalModel.resx">
+      <DependentUpon>201712081437244_UpdatedHourIntervalModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

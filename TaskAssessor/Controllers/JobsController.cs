@@ -21,6 +21,7 @@ namespace TaskAssessor.Controllers
             return View(jobs);
         }
 
+        //gets details regarding a task and sends them to the client
         public ActionResult Details(int id)
         {
             var job = _context.Jobs.Include(user => user.ApplicationUser).SingleOrDefault(j => j.Id == id);
@@ -45,8 +46,8 @@ namespace TaskAssessor.Controllers
             {
                 return HttpNotFound();
             }
-        
-            return View("CreateJob",job);
+
+            return View("CreateJob", job);
         }
 
         public ActionResult Delete(int id)
@@ -57,13 +58,14 @@ namespace TaskAssessor.Controllers
         [HttpPost]
         public ActionResult CreateJob(Job job)
         {
-           
+
             if (job.Id == 0)
             {
                 job.DateAdded = DateTime.Now;
                 job.ApplicationUserId = User.Identity.GetUserId();
                 _context.Jobs.Add(job);
-            }else
+            }
+            else
             {
                 var jobInDb = _context.Jobs.Single(j => j.Id == job.Id);
                 jobInDb.Name = job.Name;
@@ -76,10 +78,6 @@ namespace TaskAssessor.Controllers
             return RedirectToAction("Index", "Jobs");
         }
 
-        //profile page for user if is authenticated where he can see it's jobs so far(today jobs)
-        public ActionResult MyJobs(string id)
-        {
-            return View();
-        }
     }
+
 }

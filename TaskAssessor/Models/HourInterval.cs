@@ -10,8 +10,14 @@ namespace TaskAssessor.Models
         public int Id { get; set; }
         public TimeSpan TimeStarted { get; set; }
         public TimeSpan TimeEnded { get; set; }
-        public int JobId { get; set; }
+        public DateTime DateAdded { get; set; }
+        public string Description { get; set; }
 
+        public string ApplicationUserId { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
+
+        public int JobId { get; set; }
         //nav property using EagerLoading 
         public Job Job { get; set; }
     }
