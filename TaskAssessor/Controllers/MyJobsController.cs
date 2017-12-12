@@ -7,8 +7,8 @@ using System.Web.Mvc;
 using TaskAssessor.Models;
 using TaskAssessor.ViewModels;
 using System.Data.Entity;
-
-
+using System.Threading;
+using System.Globalization;
 
 namespace TaskAssessor.Controllers
 {
@@ -16,13 +16,29 @@ namespace TaskAssessor.Controllers
     {
         private ApplicationDbContext _context = new ApplicationDbContext();
 
+        private string SetDate(DateTime date)
+        { 
+            return date.ToShortDateString();
+        }
+
+
         // GET: MyJobs
-        public ActionResult Index()
+        public ActionResult Index(string date)
         {
-            var currentUserJobs = _context.HourIntervals.Include(u => u.Job).ToList().Where(u => u.ApplicationUserId == User.Identity.GetUserId());
+            if (date == null)
+            {
+                date = SetDate(DateTime.Now);
+            }
+
+            var currentUserJobs = _context.HourIntervals.Include(u => u.Job).ToList().Where(u => u.ApplicationUserId == User.Identity.GetUserId() && date.Equals(SetDate(u.DateAdded)));
+            if (currentUserJobs == null)
+            {
+                return View();
+            }
 
             return View(currentUserJobs);
         }
+      
 
         [Authorize]
         public ActionResult New()
