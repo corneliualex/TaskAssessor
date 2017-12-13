@@ -12,6 +12,7 @@ namespace TaskAssessor.Models
         public TimeSpan TimeEnded { get; set; }
         public DateTime DateAdded { get; set; }
         public string Description { get; set; }
+        public double TotalTime { get; set; }
 
         public string ApplicationUserId { get; set; }
 
