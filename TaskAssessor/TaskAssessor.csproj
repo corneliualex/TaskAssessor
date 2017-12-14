@@ -341,7 +341,7 @@
     <Content Include="Views\Jobs\Edit.cshtml" />
     <Content Include="Views\Jobs\MyJobs.cshtml" />
     <Content Include="Views\MyJobs\Index.cshtml" />
-    <Content Include="Views\MyJobs\CreateMyJob.cshtml" />
+    <Content Include="Views\MyJobs\CreateFormMyJobs.cshtml" />
     <Content Include="Views\MyJobs\New.cshtml" />
     <Content Include="Views\MyJobs\Details.cshtml" />
     <Content Include="Views\MyJobs\Edit.cshtml" />
