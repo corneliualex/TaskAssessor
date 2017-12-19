@@ -119,6 +119,7 @@ namespace TaskAssessor.Controllers
         {
             return User.Identity.GetUserId();
         }
+
         private string SetDate(DateTime date)
         {
             return date.ToShortDateString();

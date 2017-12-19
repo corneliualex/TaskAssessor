@@ -52,7 +52,15 @@ namespace TaskAssessor.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            var job = _context.Jobs.SingleOrDefault(j => j.Id == id);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
+            _context.Jobs.Remove(job);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Jobs");
         }
 
         [HttpPost]

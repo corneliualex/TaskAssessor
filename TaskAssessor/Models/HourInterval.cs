@@ -23,17 +23,18 @@ namespace TaskAssessor.Models
 
         private double totalTime = 0;
 
-        public double TotalTime {
+        public double TotalTime
+        {
             get { return totalTime; }
             set { totalTime = Math.Round((TimeEnded - TimeStarted).TotalHours, 2); }
         }
 
+        //foreign keys
         public string ApplicationUserId { get; set; }
-
-        public ApplicationUser ApplicationUser { get; set; }
-
         public int JobId { get; set; }
-        //nav property using EagerLoading 
+
+        //nav properties
         public Job Job { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }
