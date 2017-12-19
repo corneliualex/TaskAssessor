@@ -13,12 +13,6 @@ namespace TaskAssessor.Controllers
     {
         private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
-        private DateTime _today;
-        public HourIntervalsController()
-        {
-            _today = DateTime.Now;
-        }
-
         // GET: HourIntervals
         public ActionResult Index()
         {

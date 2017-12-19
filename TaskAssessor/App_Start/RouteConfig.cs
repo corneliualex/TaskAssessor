@@ -11,6 +11,9 @@ namespace TaskAssessor
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            //enabling attribute routing 
+            routes.MapMvcAttributeRoutes();
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
