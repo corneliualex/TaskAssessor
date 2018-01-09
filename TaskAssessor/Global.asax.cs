@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Http;
+using System.Web.Routing;
 
 namespace TaskAssessor
 {
@@ -16,6 +18,7 @@ namespace TaskAssessor
         {
             //Thread.CurrentThread.CurrentCulture = new CultureInfo("ro-RO");
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("ro-RO");
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
