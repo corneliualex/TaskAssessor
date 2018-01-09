@@ -21,16 +21,18 @@
 
     <div class="form-group">
         @Html.LabelFor(j => j.HourInterval.Description)
-        @Html.TextBoxFor(j => j.HourInterval.Description, new { @class = "form-control" })
+        @Html.TextBoxFor(j => j.HourInterval.Description, new { @class = "form-control", @placeholder = "Describe what you did :)" })
+        @Html.ValidationMessageFor(j => j.HourInterval.Description)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(j => j.HourInterval.JobId)
-        @Html.DropDownListFor(j => j.HourInterval.JobId, new SelectList(Model.Jobs,"Id","Name"),"Select Task", new { @class = "form-control" })
+        @Html.DropDownListFor(j => j.HourInterval.JobId, new SelectList(Model.Jobs, "Id", "Name"), "Select Task", new { @class = "form-control" })
+        @Html.ValidationMessageFor(j => j.HourInterval.JobId)
     </div>
 
 
-    @Html.HiddenFor(j=> j.HourInterval.Id)
+    @Html.HiddenFor(j => j.HourInterval.Id)
     @Html.HiddenFor(j => j.HourInterval.ApplicationUserId)
     <button type="submit" class="btn btn-primary">Save</button>
 }

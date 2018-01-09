@@ -90,6 +90,7 @@ namespace TaskAssessor.Controllers
             {
                 hourInterval.ApplicationUserId = User.Identity.GetUserId();
                 hourInterval.DateAdded = DateTime.Now;
+                hourInterval.TotalTime = Math.Round((hourInterval.TimeEnded - hourInterval.TimeStarted).TotalHours, 2);
                 _context.HourIntervals.Add(hourInterval);
             }else
             {
