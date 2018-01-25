@@ -181,12 +181,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\APIs\APIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HourIntervalsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyJobsController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -247,11 +247,14 @@
     <Compile Include="Migrations\201801091156285_AddedValidation_HourInterval1.0.Designer.cs">
       <DependentUpon>201801091156285_AddedValidation_HourInterval1.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801091619347_ChangedDB.cs" />
+    <Compile Include="Migrations\201801091619347_ChangedDB.Designer.cs">
+      <DependentUpon>201801091619347_ChangedDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomValidations\GreaterThanStarted.cs" />
     <Compile Include="Models\HourInterval.cs" />
-    <Compile Include="Models\HourIntervalDTO.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\CustomValidations\LessThanEnded.cs" />
@@ -374,6 +377,7 @@
     <Content Include="Views\MyJobs\New.cshtml" />
     <Content Include="Views\MyJobs\Details.cshtml" />
     <Content Include="Views\MyJobs\Edit.cshtml" />
+    <Content Include="Views\Statistics\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -429,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801091156285_AddedValidation_HourInterval1.0.resx">
       <DependentUpon>201801091156285_AddedValidation_HourInterval1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091619347_ChangedDB.resx">
+      <DependentUpon>201801091619347_ChangedDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
